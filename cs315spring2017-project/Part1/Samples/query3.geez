@@ -1,0 +1,12 @@
+Predicate p1 = #moreThan("Money",50.000);
+Predicate p2 = $lessThan("Money",10.000);
+Filter f1 = p1&p2;
+Query q1 = f1*;
+If(f1)
+     Predicate p3 = #equals("Money is", "almost everything");
+Elseif (p1 & !f1)
+     Predicate p4 = #equals("Money is", "everything");
+Else{
+     Predicate p5 = #equals("Money is", "nothing");
+     exec(graph,q1);
+}

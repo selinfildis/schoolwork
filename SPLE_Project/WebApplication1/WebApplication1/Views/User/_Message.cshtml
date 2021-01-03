@@ -1,0 +1,47 @@
+﻿<div id="messg" class="modal fade"  role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form  class="form">
+                    <input type="hidden" value="@ViewBag.RecieverId" name="uidreciever"/>
+                    <textarea class="col-md-6" placeholder="Enter content here" rows="6" name="message"></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success submitbtn">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+        $(".submit").on('click', function () {
+            $.ajax({
+                url: '/User/SendMessage',
+                type: 'post',
+                dataType: 'json',
+                data: $('form').serialize(),
+                success: function (data) {
+                    if (data)
+                    {
+                        window.location.href = window.location.origin + "/User/ListUsers";
+                    }
+                    else
+                        alert("Could not send message, please try again");
+
+                },
+                error: function (data) {
+                    alert("Could not send message, please try again later");
+                }
+            });
+            return false;
+        });
+</script>

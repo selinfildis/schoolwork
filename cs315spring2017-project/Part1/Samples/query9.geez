@@ -1,0 +1,11 @@
+Predicate p1 = #equals("Course","cs342");
+Predicate p3 = $equals("GPA", 1.8);
+Predicate p3 = #equals("Name", "Operating Systems");
+Predicate p1 = #equals("Course","cs315");
+Predicate p3 = $equals("GPA", 2.8);
+Predicate p3 = #equals("Name", "Programming Languages");
+
+Filter f1 = (p1&p2&p3)| (p4&p5&p6);
+
+Query q1 = (f1^);
+

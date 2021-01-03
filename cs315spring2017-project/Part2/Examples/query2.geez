@@ -1,0 +1,23 @@
+Main(){
+
+    Predicate p1 = #Lessthan("Yes Votes", 50);
+
+    Predicate p2 = #Morethan("No Votes", 50);
+
+    Filter f1 = p1^;
+
+    Filter f2 = p1 & p2;
+
+    Filter f3 = p1 & p2^;
+x = {"klsfdjkls","adşskfşlads"};
+    Query q1 = (f1|(f2&f3))^;
+
+    Query q2 = f2&f3;
+
+    Query q3 = (f1&f2&f3)^;
+
+    Query q4 = q1 |((q2^)&q3);
+
+    Exec(myGraph,q4);
+}
+

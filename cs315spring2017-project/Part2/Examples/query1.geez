@@ -1,0 +1,14 @@
+Main(){
+    Predicate p1 = #Equals("Ligue 1","Alexandre Lacazette");
+
+    Predicate p2 = $Equals("Ligue 1", "Mbappe Lottin");
+
+    Filter f1 = p1^&p2;
+
+    Filter f2 = p1 | p2^;
+
+    Query q1 = (f1 | f2);
+
+    Exec(graph, q1);            
+//Creates query for a specified graph
+}

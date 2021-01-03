@@ -1,0 +1,30 @@
+﻿@model WebApplication1.Models.StudentModel
+<body>
+    <div class="container">
+        <h2>Grades and Attendance</h2>
+        <p>You can see the current semesters' grades and attendances from here</p> 
+        <table class="table table-bordered table-striped table-responsive">
+            <thead>
+                <tr>
+                    <td>Course</td>
+                    <td>Letter Grade</td>
+                    <td>Attendance</td>
+                    <td>Semester</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var element in Model.stu.Transcript)
+                {
+                    <tr>
+                        <td>@element.Course.CourseName</td>
+                        <td>@element.LetterGrade</td>
+                        <td>@element.Attendance</td>
+                        <td>@element.Semester</td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</body>

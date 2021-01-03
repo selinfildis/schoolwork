@@ -1,0 +1,11 @@
+﻿div {
+    border:none;
+}
+.center {
+    right: -34vw;
+    /* align-content: center; */
+    top: 20vh;
+}
+body {
+    background-image: url("https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1450277/5846/4134/m1/fpnw/wm0/geometric-pattern-1-.jpg?1468430131&s=b47a3a03139fef70d6c836115037ee95")
+}

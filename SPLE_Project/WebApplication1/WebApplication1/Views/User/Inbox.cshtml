@@ -1,0 +1,82 @@
+﻿<div class="container">
+    <h2>Messages</h2>
+    <p>See your messages</p>
+    <div class="col-md-3">
+        <button class="btn btn-success" name="in" id="in">Incomming</button>
+        <button class="btn btn-success" name="out" id="out">Outgoing</button>
+    </div>
+    <div id="in-table"  style="display:block;">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Date</td>
+                    <td>From</td>
+                    <td>Content</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var element in ViewBag.IncommingMessages)
+                {
+                    if (element != null)
+                    {
+                        <tr>
+                            <td>@element.CreateDate</td>
+                            <td>@element.User1.FullName</td>
+                            <td>@element.message</td>
+                            <td>
+                                <button class="btn btn-success" name="forum" data-send-to-id="@element.senderid" data-from-id="@element.recieverid">Reply</button>
+                                <button class="btn btn-success" name="forum" data-messageid="@element.messageid">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="out-table" style="display:none;">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Date</td>
+                    <td>From</td>
+                    <td>Content</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                
+                @foreach (var element in ViewBag.OutgoingMessages)
+                {
+                    if (element != null)
+                    {
+                        <tr>
+                            <td>@element.CreateDate</td>
+                            <td>@element.User1.FullName</td>
+                            <td>@element.message</td>
+                            <td>
+                                <button class="btn btn-success" name="forum" data-send-to-id="@element.senderid" data-from-id="@element.recieverid">Reply</button>
+                                <button class="btn btn-success" name="forum" data-messageid="@element.messageid">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#in").on('click', function () {
+            $("#in-table").prop('style','display:block;');
+            $("#out-table").prop('style', 'display:none;');
+        });
+        $("#out").on('click', function () {
+            $("#in-table").prop('style', 'display:none;');
+            $("#out-table").prop('style', 'display:block;');
+        });
+
+    });
+    
+</script>

@@ -1,0 +1,42 @@
+DirGraph g1 {
+Vertex asia;
+Vertex europe;
+Vertex america;
+Edge plain;
+Edge car;
+Edge train;
+//Properties can have a name and value. Name must be string
+//while value can be string,float, integer, list, map, set,
+//etc.
+asia.includeProperty("Asia", "First Continent");
+asia.includeProperty("Population", 4.436);
+asia.includeProperty("Countries", ["China", "North Korea", "South Korea", "Japan"]);
+//It is also possible to add properties by using a special word
+//Property
+Property p1 = ("Europe", "Second Continent");
+Property p2 = ("Population", 743);
+Property p3 = ("Countries", ["Turkey", "Spain", "France", "Germany"]);
+europe.includeProperty(p1);
+europe.includeProperty(p2);
+europe.includeProperty(p3);
+Property p4 = ("America", "Third Continent");
+america. includeProperty(p4);
+america. includeProperty("Population", 1.002);
+Property p5 = ("Countries", ["Dominican Republic", "Costa Rica", "Panama", "Argentina"]);
+america. includeProperty(p5);
+//Edges can also have properties
+plain.includeProperty("Acun Ilıcalı", 10);
+plain.includeProperty("Speed", 850);
+car.includeProperty("Ali Ağaoğlu", 1000);
+car.includeProperty("Speed", 120);
+train.includeProperty("Devlet Demir Yolları", 300);
+train.includeProperty("Speed", 100);
+//Since it is directed graph, when the connect keyword is
+//used,besides connecting specified vertices with the specified
+//edges,it also gives direction fromfirst vertex to second
+//vertex(i.e.from Asia to Europe, Europe to America, America to
+//Asia)
+connect(asia, europe, train);
+connect(europe, america, plain);
+connect(america, asia, car);
+}

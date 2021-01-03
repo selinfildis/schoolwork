@@ -1,0 +1,26 @@
+Main(){
+
+Predicate color1 = #Equals("Name", "Red");
+
+Predicate color2 = #Equals("Name", "Blue");
+
+Predicate color3 = #Equals("Name", "Green");
+
+Predicate color4 = $Equals("Name", "Cyan");
+
+//Missing comma between arguements
+Predicate color5 = $Equals("Name" "Yellow");
+
+Predicate color6 = $Equals("Name", "Purple");
+
+Filter f1 = color1 & color5 & color3;
+
+Filter f2 = color1 & color6 & color2;
+
+Filter f3 = color2 & color4 & color3; 
+
+Query q1 = f1|f2|f3;
+
+Exec(myGraph, q1);
+
+}

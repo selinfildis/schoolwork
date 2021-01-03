@@ -1,0 +1,33 @@
+Main(){
+DirGraph g1{
+Vertex asia;
+Vertex europe;
+Vertex america;
+Edge plain;
+Edge car;
+Edge train;
+asia.IncludeProperty("Population", 4.436);
+asia.IncludeProperty("Countries", {"China", "North Korea","South Korea", "Japan"});
+Property p1 = ("Europe", "Second Continent");
+Property p2 = ("Population", 743);
+Property p3 = ("Countries", ["Turkey", "Spain", "France","Germany"]);
+europe.IncludeProperty(p1);
+europe.IncludeProperty(p2);
+europe.IncludeProperty(p3);
+Property p4 = ("America", "Third Continent");
+america.IncludeProperty(p4);
+america.IncludeProperty("Population", 1.002);
+Property p5 = ("Countries", ["Dominican Republic", "Costa Rica", "Panama", "Argentina"]);
+america.IncludeProperty(p5);
+//Edges can also have properties
+plain.IncludeProperty("Acun ", 10);
+plain.IncludeProperty("Speed", 850);
+car.IncludeProperty("Ali", 1000);
+car.IncludeProperty("Speed", 120);
+train.IncludeProperty("Devlet Demir Yolları", 300);
+train.IncludeProperty("Speed", 100);
+Connect(asia, europe, train);
+Connect(europe, america, plain);
+Connect(america, asia, car);
+}
+}

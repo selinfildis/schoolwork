@@ -1,0 +1,29 @@
+﻿@model WebApplication1.Models.StudentModel
+<body>
+    <div class="container">
+        <h2>Transcript</h2>
+        <p>This is the official Transcript for Student @ViewBag.User.FullName</p> 
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <td>Course</td>
+                    <td>Letter Grade</td>
+                    <td>GPA</td>
+                    <td>Semester</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var element in Model.stu.Transcript) {
+                <tr>
+                    <td>@element.Course.CourseName</td>
+                    <td>@element.LetterGrade</td>
+                    <td>@element.GPA</td>
+                    <td>@element.Semester</td>
+
+                </tr>
+                }
+            </tbody>
+           
+        </table>
+    </div>
+</body>

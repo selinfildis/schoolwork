@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1462323455">
+  <File Type="OPT-DCP" Name="FPGA_HERO_opt.dcp"/>
+  <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/impl_1/constrs_in.xml"/>
+  <File Type="RUN-SRCS" Name="$PDATADIR/runs/impl_1/sources.xml"/>
+  <File Type="PWROPT-DCP" Name="FPGA_HERO_pwropt.dcp"/>
+  <File Type="ROUTE-DCP" Name="FPGA_HERO_routed.dcp"/>
+  <File Type="PA-TCL" Name="FPGA_HERO.tcl"/>
+  <File Type="RUN-STRAT" Name="$PDATADIR/runs/impl_1/impl_1.psg"/>
+  <File Type="OPT-DRC" Name="FPGA_HERO_drc_opted.rpt"/>
+  <File Type="PWROPT-DRC" Name="FPGA_HERO_drc_pwropted.rpt"/>
+  <File Type="OPT-HWDEF" Name="FPGA_HERO.hwdef"/>
+  <File Type="PLACE-DCP" Name="FPGA_HERO_placed.dcp"/>
+  <File Type="PLACE-IO" Name="FPGA_HERO_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="FPGA_HERO_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="FPGA_HERO_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="FPGA_HERO_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="FPGA_HERO_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="FPGA_HERO_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="FPGA_HERO_incremental_reuse_pre_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="FPGA_HERO_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="FPGA_HERO_physopt.dcp"/>
+  <File Type="RDI-RDI" Name="FPGA_HERO.vdi"/>
+  <File Type="PHYSOPT-DRC" Name="FPGA_HERO_drc_physopted.rpt"/>
+  <File Type="ROUTE-DRC" Name="FPGA_HERO_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="FPGA_HERO_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="FPGA_HERO_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="FPGA_HERO_power_summary_routed.pb"/>
+  <File Type="ROUTE-STATUS" Name="FPGA_HERO_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="FPGA_HERO_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="FPGA_HERO_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="FPGA_HERO_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="FPGA_HERO_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="FPGA_HERO_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="FPGA_HERO_clock_utilization_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="FPGA_HERO_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="FPGA_HERO_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="FPGA_HERO_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="FPGA_HERO_timing_summary_postroute_physopted.rpx"/>
+  <File Type="BG-BIT" Name="FPGA_HERO.bit"/>
+  <File Type="BG-BIN" Name="FPGA_HERO.bin"/>
+  <File Type="BITSTR-MSK" Name="FPGA_HERO.msk"/>
+  <File Type="BITSTR-RBT" Name="FPGA_HERO.rbt"/>
+  <File Type="BITSTR-NKY" Name="FPGA_HERO.nky"/>
+  <File Type="BITSTR-BMM" Name="FPGA_HERO_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="FPGA_HERO.mmi"/>
+  <File Type="BITSTR-SYSDEF" Name="FPGA_HERO.sysdef"/>
+  <File Type="BG-BGN" Name="FPGA_HERO.bgn"/>
+  <File Type="BG-DRC" Name="FPGA_HERO.drc"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/NERP_demo/vga640x480.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../vga640x480.v"/>
+        <Attr Name="ImportTime" Val="1462290137"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/NERP_demo/clockdiv.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../clockdiv.v"/>
+        <Attr Name="ImportTime" Val="1462278750"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/working/songProgress.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../working/songProgress.sv"/>
+        <Attr Name="ImportTime" Val="1462250356"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/working/seg7.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../working/seg7.sv"/>
+        <Attr Name="ImportTime" Val="1462250356"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/working/PushButton_Debouncer.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../working/PushButton_Debouncer.sv"/>
+        <Attr Name="ImportTime" Val="1462250356"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/working/pointKeeper.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../working/pointKeeper.sv"/>
+        <Attr Name="ImportTime" Val="1462250356"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/NERP_demo/NERP_demo_top.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../NERP_demo_top.v"/>
+        <Attr Name="ImportTime" Val="1462291404"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/working/equalityCheck.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../working/equalityCheck.sv"/>
+        <Attr Name="ImportTime" Val="1462250356"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/working/counters.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../working/counters.sv"/>
+        <Attr Name="ImportTime" Val="1462250356"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/songData.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/working/datapath.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../working/datapath.sv"/>
+        <Attr Name="ImportTime" Val="1462291786"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/working/soundSystem.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../working/soundSystem.sv"/>
+        <Attr Name="ImportTime" Val="1462250356"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/NERP_demo/segdisplay.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../segdisplay.v"/>
+        <Attr Name="ImportTime" Val="1364522842"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="FPGA_HERO"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/Desktop/Basys3_Master.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../Basys3_Master.xdc"/>
+        <Attr Name="ImportTime" Val="1462291235"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

@@ -1,0 +1,1459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VitaminModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyInitYear" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeacherId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DoctorID" />
+          </Key>
+          <Property Name="DoctorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Speciality" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Salary" Type="float" />
+          <Property Name="CompanyId" Type="uniqueidentifier" />
+          <Property Name="InsuranceId" Type="uniqueidentifier" />
+          <Property Name="ScheduleId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="ForumId" />
+          </Key>
+          <Property Name="ForumId" Type="int" Nullable="false" />
+          <Property Name="ForumName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CourseId" Type="int" />
+          <Property Name="CompanyId" Type="uniqueidentifier" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ForumEntries">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="ForumId" Type="int" Nullable="false" />
+          <Property Name="MessageId" Type="int" Nullable="false" />
+          <Property Name="EntryContent" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GovernmentOfficial">
+          <Key>
+            <PropertyRef Name="GovernmentOfficialId" />
+          </Key>
+          <Property Name="GovernmentOfficialId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Insurence">
+          <Key>
+            <PropertyRef Name="InsuranceID" />
+          </Key>
+          <Property Name="InsuranceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InsuranceType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EmployeeId" Type="uniqueidentifier" />
+          <Property Name="RetireeId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="ManagerId" />
+          </Key>
+          <Property Name="ManagerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="messageid" />
+          </Key>
+          <Property Name="senderid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="recieverid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="messageid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ResourceURL" />
+          </Key>
+          <Property Name="ResourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ResourceURL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ResourceId" Type="int" Nullable="false" />
+          <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CourseId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Retiree">
+          <Key>
+            <PropertyRef Name="RetireeID" />
+          </Key>
+          <Property Name="RetireeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="HealthStatus" Type="varchar(max)" />
+          <Property Name="DoctorId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+          </Key>
+          <Property Name="ScheduleID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmployeeId" Type="uniqueidentifier" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="DateNote" Type="varchar(max)" Nullable="false" />
+          <Property Name="StudentId" Type="uniqueidentifier" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GPA" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TeacherId" />
+          </Key>
+          <Property Name="TeacherId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Transcript">
+          <Key>
+            <PropertyRef Name="tid" />
+          </Key>
+          <Property Name="cid" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LetterGrade" Type="char" MaxLength="10" />
+          <Property Name="CourseName" Type="varchar(max)" />
+          <Property Name="GPA" Type="float" />
+          <Property Name="Semester" Type="nvarchar" MaxLength="50" />
+          <Property Name="Attendance" Type="int" />
+          <Property Name="tid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adress" Type="varchar(max)" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="StudentID" Type="uniqueidentifier" />
+          <Property Name="EmployeeID" Type="uniqueidentifier" />
+          <Property Name="UserType" Type="int" Nullable="false" />
+          <Property Name="TeacherId" Type="uniqueidentifier" />
+          <Property Name="ManagerId" Type="uniqueidentifier" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CV" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Vacation">
+          <Key>
+            <PropertyRef Name="vid" />
+          </Key>
+          <Property Name="vid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VacationType" Type="int" Nullable="false" />
+          <Property Name="VacationDate" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Company_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Company1" Type="Self.Company" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Company1">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Course1" Type="Self.Course" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="Course1">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherId" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forum_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forum_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumEntries_Forum">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ForumEntries" Type="Self.ForumEntries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ForumEntries">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Insurence_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Insurence" Type="Self.Insurence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="Insurence">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Insurence_Retiree">
+          <End Role="Retiree" Type="Self.Retiree" Multiplicity="0..1" />
+          <End Role="Insurence" Type="Self.Insurence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Retiree">
+              <PropertyRef Name="RetireeID" />
+            </Principal>
+            <Dependent Role="Insurence">
+              <PropertyRef Name="RetireeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manager_Manager">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Manager">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="recieverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_User1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="senderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resource_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Resource" Type="Self.Resource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Resource">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resource_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Resource" Type="Self.Resource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="Resource">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Retiree_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Retiree" Type="Self.Retiree" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DoctorID" />
+            </Principal>
+            <Dependent Role="Retiree">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transcript_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Transcript" Type="Self.Transcript" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="Transcript">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transcript_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Transcript" Type="Self.Transcript" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Transcript">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Manager">
+          <End Role="Manager" Type="Self.Manager" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="ManagerId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Student1">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacation_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Vacation" Type="Self.Vacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Vacation">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VitaminModelStoreContainer">
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forum" EntityType="Self.Forum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForumEntries" EntityType="Self.ForumEntries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GovernmentOfficial" EntityType="Self.GovernmentOfficial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Insurence" EntityType="Self.Insurence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resource" EntityType="Self.Resource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Retiree" EntityType="Self.Retiree" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transcript" EntityType="Self.Transcript" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vacation" EntityType="Self.Vacation" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Company_Company" Association="Self.FK_Company_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Company1" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Course" Association="Self.FK_Course_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Course1" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Teacher" Association="Self.FK_Course_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Company" Association="Self.FK_Employee_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Schedule" Association="Self.FK_Employee_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forum_Company" Association="Self.FK_Forum_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forum_Course" Association="Self.FK_Forum_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumEntries_Forum" Association="Self.FK_ForumEntries_Forum">
+            <End Role="User" EntitySet="User" />
+            <End Role="ForumEntries" EntitySet="ForumEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Insurence_Employee" Association="Self.FK_Insurence_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Insurence" EntitySet="Insurence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Insurence_Retiree" Association="Self.FK_Insurence_Retiree">
+            <End Role="Retiree" EntitySet="Retiree" />
+            <End Role="Insurence" EntitySet="Insurence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manager_Manager" Association="Self.FK_Manager_Manager">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Manager" EntitySet="Manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_User" Association="Self.FK_Message_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_User1" Association="Self.FK_Message_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resource_Company" Association="Self.FK_Resource_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Resource" EntitySet="Resource" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resource_Course" Association="Self.FK_Resource_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Resource" EntitySet="Resource" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Retiree_Doctor" Association="Self.FK_Retiree_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Retiree" EntitySet="Retiree" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Student" Association="Self.FK_Schedule_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_User" Association="Self.FK_Schedule_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transcript_Course" Association="Self.FK_Transcript_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Transcript" EntitySet="Transcript" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transcript_Student" Association="Self.FK_Transcript_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Transcript" EntitySet="Transcript" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Employee" Association="Self.FK_User_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Manager" Association="Self.FK_User_Manager">
+            <End Role="Manager" EntitySet="Manager" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Student1" Association="Self.FK_User_Student1">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Teacher" Association="Self.FK_User_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacation_User" Association="Self.FK_Vacation_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Vacation" EntitySet="Vacation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VitaminModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VitaminEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Company" EntityType="VitaminModel.Company" />
+          <EntitySet Name="Course" EntityType="VitaminModel.Course" />
+          <EntitySet Name="Doctor" EntityType="VitaminModel.Doctor" />
+          <EntitySet Name="Employee" EntityType="VitaminModel.Employee" />
+          <EntitySet Name="Forum" EntityType="VitaminModel.Forum" />
+          <EntitySet Name="ForumEntries" EntityType="VitaminModel.ForumEntries" />
+          <EntitySet Name="GovernmentOfficial" EntityType="VitaminModel.GovernmentOfficial" />
+          <EntitySet Name="Insurence" EntityType="VitaminModel.Insurence" />
+          <EntitySet Name="Manager" EntityType="VitaminModel.Manager" />
+          <EntitySet Name="Message" EntityType="VitaminModel.Message" />
+          <EntitySet Name="Resource" EntityType="VitaminModel.Resource" />
+          <EntitySet Name="Retiree" EntityType="VitaminModel.Retiree" />
+          <EntitySet Name="Schedule" EntityType="VitaminModel.Schedule" />
+          <EntitySet Name="Student" EntityType="VitaminModel.Student" />
+          <EntitySet Name="Teacher" EntityType="VitaminModel.Teacher" />
+          <EntitySet Name="Transcript" EntityType="VitaminModel.Transcript" />
+          <EntitySet Name="User" EntityType="VitaminModel.User" />
+          <EntitySet Name="Vacation" EntityType="VitaminModel.Vacation" />
+          <AssociationSet Name="FK_Company_Company" Association="VitaminModel.FK_Company_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Company1" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Company" Association="VitaminModel.FK_Employee_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forum_Company" Association="VitaminModel.FK_Forum_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manager_Manager" Association="VitaminModel.FK_Manager_Manager">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Manager" EntitySet="Manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resource_Company" Association="VitaminModel.FK_Resource_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Resource" EntitySet="Resource" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Course" Association="VitaminModel.FK_Course_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Course1" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Teacher" Association="VitaminModel.FK_Course_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forum_Course" Association="VitaminModel.FK_Forum_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resource_Course" Association="VitaminModel.FK_Resource_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Resource" EntitySet="Resource" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transcript_Course" Association="VitaminModel.FK_Transcript_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Transcript" EntitySet="Transcript" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Retiree_Doctor" Association="VitaminModel.FK_Retiree_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Retiree" EntitySet="Retiree" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Schedule" Association="VitaminModel.FK_Employee_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Insurence_Employee" Association="VitaminModel.FK_Insurence_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Insurence" EntitySet="Insurence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Employee" Association="VitaminModel.FK_User_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumEntries_Forum" Association="VitaminModel.FK_ForumEntries_Forum">
+            <End Role="User" EntitySet="User" />
+            <End Role="ForumEntries" EntitySet="ForumEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Insurence_Retiree" Association="VitaminModel.FK_Insurence_Retiree">
+            <End Role="Retiree" EntitySet="Retiree" />
+            <End Role="Insurence" EntitySet="Insurence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Manager" Association="VitaminModel.FK_User_Manager">
+            <End Role="Manager" EntitySet="Manager" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_User" Association="VitaminModel.FK_Message_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_User1" Association="VitaminModel.FK_Message_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Student" Association="VitaminModel.FK_Schedule_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transcript_Student" Association="VitaminModel.FK_Transcript_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Transcript" EntitySet="Transcript" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Student1" Association="VitaminModel.FK_User_Student1">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Teacher" Association="VitaminModel.FK_User_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_User" Association="VitaminModel.FK_Schedule_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacation_User" Association="VitaminModel.FK_Vacation_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Vacation" EntitySet="Vacation" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Guid" Nullable="false" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyInitYear" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Company1" Relationship="VitaminModel.FK_Company_Company" FromRole="Company" ToRole="Company1" />
+          <NavigationProperty Name="Company2" Relationship="VitaminModel.FK_Company_Company" FromRole="Company1" ToRole="Company" />
+          <NavigationProperty Name="Employee" Relationship="VitaminModel.FK_Employee_Company" FromRole="Company" ToRole="Employee" />
+          <NavigationProperty Name="Forum" Relationship="VitaminModel.FK_Forum_Company" FromRole="Company" ToRole="Forum" />
+          <NavigationProperty Name="Manager" Relationship="VitaminModel.FK_Manager_Manager" FromRole="Company" ToRole="Manager" />
+          <NavigationProperty Name="Resource" Relationship="VitaminModel.FK_Resource_Company" FromRole="Company" ToRole="Resource" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TeacherId" Type="Guid" />
+          <NavigationProperty Name="Course1" Relationship="VitaminModel.FK_Course_Course" FromRole="Course" ToRole="Course1" />
+          <NavigationProperty Name="Course2" Relationship="VitaminModel.FK_Course_Course" FromRole="Course1" ToRole="Course" />
+          <NavigationProperty Name="Teacher" Relationship="VitaminModel.FK_Course_Teacher" FromRole="Course" ToRole="Teacher" />
+          <NavigationProperty Name="Forum" Relationship="VitaminModel.FK_Forum_Course" FromRole="Course" ToRole="Forum" />
+          <NavigationProperty Name="Resource" Relationship="VitaminModel.FK_Resource_Course" FromRole="Course" ToRole="Resource" />
+          <NavigationProperty Name="Transcript" Relationship="VitaminModel.FK_Transcript_Course" FromRole="Course" ToRole="Transcript" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DoctorID" />
+          </Key>
+          <Property Name="DoctorID" Type="Guid" Nullable="false" />
+          <Property Name="Speciality" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Retiree" Relationship="VitaminModel.FK_Retiree_Doctor" FromRole="Doctor" ToRole="Retiree" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Guid" Nullable="false" />
+          <Property Name="Salary" Type="Double" />
+          <Property Name="CompanyId" Type="Guid" />
+          <Property Name="InsuranceId" Type="Guid" />
+          <Property Name="ScheduleId" Type="Guid" />
+          <NavigationProperty Name="Company" Relationship="VitaminModel.FK_Employee_Company" FromRole="Employee" ToRole="Company" />
+          <NavigationProperty Name="Schedule" Relationship="VitaminModel.FK_Employee_Schedule" FromRole="Employee" ToRole="Schedule" />
+          <NavigationProperty Name="Insurence" Relationship="VitaminModel.FK_Insurence_Employee" FromRole="Employee" ToRole="Insurence" />
+          <NavigationProperty Name="User" Relationship="VitaminModel.FK_User_Employee" FromRole="Employee" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="ForumId" />
+          </Key>
+          <Property Name="ForumId" Type="Int32" Nullable="false" />
+          <Property Name="ForumName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CourseId" Type="Int32" />
+          <Property Name="CompanyId" Type="Guid" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Company" Relationship="VitaminModel.FK_Forum_Company" FromRole="Forum" ToRole="Company" />
+          <NavigationProperty Name="Course" Relationship="VitaminModel.FK_Forum_Course" FromRole="Forum" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="ForumEntries">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="ForumId" Type="Int32" Nullable="false" />
+          <Property Name="MessageId" Type="Int32" Nullable="false" />
+          <Property Name="EntryContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="VitaminModel.FK_ForumEntries_Forum" FromRole="ForumEntries" ToRole="User" />
+        </EntityType>
+        <EntityType Name="GovernmentOfficial">
+          <Key>
+            <PropertyRef Name="GovernmentOfficialId" />
+          </Key>
+          <Property Name="GovernmentOfficialId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Insurence">
+          <Key>
+            <PropertyRef Name="InsuranceID" />
+          </Key>
+          <Property Name="InsuranceID" Type="Guid" Nullable="false" />
+          <Property Name="InsuranceType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EmployeeId" Type="Guid" />
+          <Property Name="RetireeId" Type="Guid" />
+          <NavigationProperty Name="Employee" Relationship="VitaminModel.FK_Insurence_Employee" FromRole="Insurence" ToRole="Employee" />
+          <NavigationProperty Name="Retiree" Relationship="VitaminModel.FK_Insurence_Retiree" FromRole="Insurence" ToRole="Retiree" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="ManagerId" />
+          </Key>
+          <Property Name="ManagerId" Type="Guid" Nullable="false" />
+          <Property Name="CompanyId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="VitaminModel.FK_Manager_Manager" FromRole="Manager" ToRole="Company" />
+          <NavigationProperty Name="User" Relationship="VitaminModel.FK_User_Manager" FromRole="Manager" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="messageid" />
+          </Key>
+          <Property Name="senderid" Type="Guid" Nullable="false" />
+          <Property Name="recieverid" Type="Guid" Nullable="false" />
+          <Property Name="messageid" Type="Int32" Nullable="false" />
+          <Property Name="message1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="VitaminModel.FK_Message_User" FromRole="Message" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="VitaminModel.FK_Message_User1" FromRole="Message" ToRole="User" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ResourceURL" />
+          </Key>
+          <Property Name="ResourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResourceURL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResourceId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyId" Type="Guid" Nullable="false" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="VitaminModel.FK_Resource_Company" FromRole="Resource" ToRole="Company" />
+          <NavigationProperty Name="Course" Relationship="VitaminModel.FK_Resource_Course" FromRole="Resource" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="Retiree">
+          <Key>
+            <PropertyRef Name="RetireeID" />
+          </Key>
+          <Property Name="RetireeID" Type="Guid" Nullable="false" />
+          <Property Name="HealthStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DoctorId" Type="Guid" />
+          <NavigationProperty Name="Doctor" Relationship="VitaminModel.FK_Retiree_Doctor" FromRole="Retiree" ToRole="Doctor" />
+          <NavigationProperty Name="Insurence" Relationship="VitaminModel.FK_Insurence_Retiree" FromRole="Retiree" ToRole="Insurence" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+          </Key>
+          <Property Name="ScheduleID" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeId" Type="Guid" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateNote" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StudentId" Type="Guid" />
+          <NavigationProperty Name="Employee" Relationship="VitaminModel.FK_Employee_Schedule" FromRole="Schedule" ToRole="Employee" />
+          <NavigationProperty Name="Student" Relationship="VitaminModel.FK_Schedule_Student" FromRole="Schedule" ToRole="Student" />
+          <Property Name="UserId" Type="Guid" />
+          <NavigationProperty Name="User" Relationship="VitaminModel.FK_Schedule_User" FromRole="Schedule" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Guid" Nullable="false" />
+          <Property Name="GPA" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Schedule" Relationship="VitaminModel.FK_Schedule_Student" FromRole="Student" ToRole="Schedule" />
+          <NavigationProperty Name="Transcript" Relationship="VitaminModel.FK_Transcript_Student" FromRole="Student" ToRole="Transcript" />
+          <NavigationProperty Name="User" Relationship="VitaminModel.FK_User_Student1" FromRole="Student" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TeacherId" />
+          </Key>
+          <Property Name="TeacherId" Type="Guid" Nullable="false" />
+          <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Course" Relationship="VitaminModel.FK_Course_Teacher" FromRole="Teacher" ToRole="Course" />
+          <NavigationProperty Name="User" Relationship="VitaminModel.FK_User_Teacher" FromRole="Teacher" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Transcript">
+          <Key>
+            <PropertyRef Name="tid" />
+          </Key>
+          <Property Name="cid" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Guid" Nullable="false" />
+          <Property Name="LetterGrade" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CourseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GPA" Type="Double" />
+          <Property Name="Semester" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Attendance" Type="Int32" />
+          <Property Name="tid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Course" Relationship="VitaminModel.FK_Transcript_Course" FromRole="Transcript" ToRole="Course" />
+          <NavigationProperty Name="Student" Relationship="VitaminModel.FK_Transcript_Student" FromRole="Transcript" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StudentID" Type="Guid" />
+          <Property Name="EmployeeID" Type="Guid" />
+          <Property Name="UserType" Type="Int32" Nullable="false" />
+          <Property Name="TeacherId" Type="Guid" />
+          <Property Name="ManagerId" Type="Guid" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="VitaminModel.FK_User_Employee" FromRole="User" ToRole="Employee" />
+          <NavigationProperty Name="ForumEntries" Relationship="VitaminModel.FK_ForumEntries_Forum" FromRole="User" ToRole="ForumEntries" />
+          <NavigationProperty Name="Manager" Relationship="VitaminModel.FK_User_Manager" FromRole="User" ToRole="Manager" />
+          <NavigationProperty Name="Message" Relationship="VitaminModel.FK_Message_User" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="Message1" Relationship="VitaminModel.FK_Message_User1" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="Student" Relationship="VitaminModel.FK_User_Student1" FromRole="User" ToRole="Student" />
+          <NavigationProperty Name="Teacher" Relationship="VitaminModel.FK_User_Teacher" FromRole="User" ToRole="Teacher" />
+          <NavigationProperty Name="Schedule" Relationship="VitaminModel.FK_Schedule_User" FromRole="User" ToRole="Schedule" />
+          <NavigationProperty Name="Vacation" Relationship="VitaminModel.FK_Vacation_User" FromRole="User" ToRole="Vacation" />
+        </EntityType>
+        <EntityType Name="Vacation">
+          <Key>
+            <PropertyRef Name="vid" />
+          </Key>
+          <Property Name="vid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VacationType" Type="Int32" Nullable="false" />
+          <Property Name="VacationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="VitaminModel.FK_Vacation_User" FromRole="Vacation" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Company_Company">
+          <End Type="VitaminModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="VitaminModel.Company" Role="Company1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Company1">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Company">
+          <End Type="VitaminModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="VitaminModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forum_Company">
+          <End Type="VitaminModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="VitaminModel.Forum" Role="Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manager_Manager">
+          <End Type="VitaminModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="VitaminModel.Manager" Role="Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Manager">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resource_Company">
+          <End Type="VitaminModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="VitaminModel.Resource" Role="Resource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Resource">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Course">
+          <End Type="VitaminModel.Course" Role="Course" Multiplicity="1" />
+          <End Type="VitaminModel.Course" Role="Course1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="Course1">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Teacher">
+          <End Type="VitaminModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="VitaminModel.Course" Role="Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherId" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forum_Course">
+          <End Type="VitaminModel.Course" Role="Course" Multiplicity="0..1" />
+          <End Type="VitaminModel.Forum" Role="Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resource_Course">
+          <End Type="VitaminModel.Course" Role="Course" Multiplicity="1" />
+          <End Type="VitaminModel.Resource" Role="Resource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="Resource">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transcript_Course">
+          <End Type="VitaminModel.Course" Role="Course" Multiplicity="1" />
+          <End Type="VitaminModel.Transcript" Role="Transcript" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="Transcript">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Retiree_Doctor">
+          <End Type="VitaminModel.Doctor" Role="Doctor" Multiplicity="0..1" />
+          <End Type="VitaminModel.Retiree" Role="Retiree" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DoctorID" />
+            </Principal>
+            <Dependent Role="Retiree">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Schedule">
+          <End Type="VitaminModel.Schedule" Role="Schedule" Multiplicity="0..1" />
+          <End Type="VitaminModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Insurence_Employee">
+          <End Type="VitaminModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="VitaminModel.Insurence" Role="Insurence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="Insurence">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Employee">
+          <End Type="VitaminModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="VitaminModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumEntries_Forum">
+          <End Type="VitaminModel.User" Role="User" Multiplicity="1" />
+          <End Type="VitaminModel.ForumEntries" Role="ForumEntries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ForumEntries">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Insurence_Retiree">
+          <End Type="VitaminModel.Retiree" Role="Retiree" Multiplicity="0..1" />
+          <End Type="VitaminModel.Insurence" Role="Insurence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Retiree">
+              <PropertyRef Name="RetireeID" />
+            </Principal>
+            <Dependent Role="Insurence">
+              <PropertyRef Name="RetireeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Manager">
+          <End Type="VitaminModel.Manager" Role="Manager" Multiplicity="0..1" />
+          <End Type="VitaminModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="ManagerId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_User">
+          <End Type="VitaminModel.User" Role="User" Multiplicity="1" />
+          <End Type="VitaminModel.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="recieverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_User1">
+          <End Type="VitaminModel.User" Role="User" Multiplicity="1" />
+          <End Type="VitaminModel.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="senderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Student">
+          <End Type="VitaminModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="VitaminModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transcript_Student">
+          <End Type="VitaminModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="VitaminModel.Transcript" Role="Transcript" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Transcript">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Student1">
+          <End Type="VitaminModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="VitaminModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Teacher">
+          <End Type="VitaminModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="VitaminModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_User">
+          <End Type="VitaminModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="VitaminModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacation_User">
+          <End Type="VitaminModel.User" Role="User" Multiplicity="1" />
+          <End Type="VitaminModel.Vacation" Role="Vacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Vacation">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VitaminModelStoreContainer" CdmEntityContainer="VitaminEntities">
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="VitaminModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyInitYear" ColumnName="CompanyInitYear" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course">
+            <EntityTypeMapping TypeName="VitaminModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctor">
+            <EntityTypeMapping TypeName="VitaminModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="VitaminModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="InsuranceId" ColumnName="InsuranceId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Forum">
+            <EntityTypeMapping TypeName="VitaminModel.Forum">
+              <MappingFragment StoreEntitySet="Forum">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="ForumName" ColumnName="ForumName" />
+                <ScalarProperty Name="ForumId" ColumnName="ForumId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForumEntries">
+            <EntityTypeMapping TypeName="VitaminModel.ForumEntries">
+              <MappingFragment StoreEntitySet="ForumEntries">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EntryContent" ColumnName="EntryContent" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="ForumId" ColumnName="ForumId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GovernmentOfficial">
+            <EntityTypeMapping TypeName="VitaminModel.GovernmentOfficial">
+              <MappingFragment StoreEntitySet="GovernmentOfficial">
+                <ScalarProperty Name="GovernmentOfficialId" ColumnName="GovernmentOfficialId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Insurence">
+            <EntityTypeMapping TypeName="VitaminModel.Insurence">
+              <MappingFragment StoreEntitySet="Insurence">
+                <ScalarProperty Name="RetireeId" ColumnName="RetireeId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
+                <ScalarProperty Name="InsuranceID" ColumnName="InsuranceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manager">
+            <EntityTypeMapping TypeName="VitaminModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="VitaminModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="message1" ColumnName="message" />
+                <ScalarProperty Name="messageid" ColumnName="messageid" />
+                <ScalarProperty Name="recieverid" ColumnName="recieverid" />
+                <ScalarProperty Name="senderid" ColumnName="senderid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resource">
+            <EntityTypeMapping TypeName="VitaminModel.Resource">
+              <MappingFragment StoreEntitySet="Resource">
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="ResourceURL" ColumnName="ResourceURL" />
+                <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Retiree">
+            <EntityTypeMapping TypeName="VitaminModel.Retiree">
+              <MappingFragment StoreEntitySet="Retiree">
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="HealthStatus" ColumnName="HealthStatus" />
+                <ScalarProperty Name="RetireeID" ColumnName="RetireeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedule">
+            <EntityTypeMapping TypeName="VitaminModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="DateNote" ColumnName="DateNote" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="VitaminModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="GPA" ColumnName="GPA" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teacher">
+            <EntityTypeMapping TypeName="VitaminModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transcript">
+            <EntityTypeMapping TypeName="VitaminModel.Transcript">
+              <MappingFragment StoreEntitySet="Transcript">
+                <ScalarProperty Name="tid" ColumnName="tid" />
+                <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="GPA" ColumnName="GPA" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="LetterGrade" ColumnName="LetterGrade" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="VitaminModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="CV" ColumnName="CV" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vacation">
+            <EntityTypeMapping TypeName="VitaminModel.Vacation">
+              <MappingFragment StoreEntitySet="Vacation">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="VacationDate" ColumnName="VacationDate" />
+                <ScalarProperty Name="VacationType" ColumnName="VacationType" />
+                <ScalarProperty Name="vid" ColumnName="vid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

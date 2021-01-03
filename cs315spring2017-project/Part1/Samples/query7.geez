@@ -1,0 +1,7 @@
+Predicate p1 = #equals("food", "bamya");
+Predicate p2 = $equals("drink", "ayran");
+Predicate p3 = $equals("price", 20.99);
+Filter f1 = p1 | p2^;
+Filter f2 = (p1 & p2) | (p3^);
+Query q1 = (f1 | f2)^;
+Query q2 = f1^;

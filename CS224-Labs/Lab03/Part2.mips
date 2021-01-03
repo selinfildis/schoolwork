@@ -1,0 +1,32 @@
+.text
+#take input of a & b 
+# while a> = b -----> loop method
+#a = a-b
+#return a
+#################
+#
+#func: takes a and b
+#if a<b 
+#return 0
+#return func(a-b, b)
+li $v0,5
+syscall 
+la $t0, ($v0)
+li $v0, 5
+syscall
+la $t1, ($v0)
+li $t2, 0
+func: 
+blt $t0, $t1, end
+sub $t0, $t0, $t1
+addi $t2, $t2, 1
+b func
+end:
+move $a0, $t0
+li $v0,1
+syscall
+move $a0, $t2
+li $v0, 1
+syscall
+li $v0,10
+syscall

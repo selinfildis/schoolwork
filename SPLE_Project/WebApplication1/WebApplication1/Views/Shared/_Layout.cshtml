@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitamin Manager</title>
+    @Styles.Render("~/Content/custom.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/Site.css")
+
+    @Scripts.Render("https://code.jquery.com/jquery-1.12.4.js")
+    @Scripts.Render("https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")
+    @Styles.Render("https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css")
+    @Scripts.Render("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+
+    
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">VMS</a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    @Html.ActionLink("Home", "MainPage", "User", new { area = "" }, new { @class = "navbar-brand" })
+                </li>
+                <li>
+                    @Html.ActionLink("Personal Info", "PersonalInfo", "User", new { area = "" }, new { @class = "navbar-brand" })
+                </li>
+                <li>
+                    @Html.ActionLink("CV", "ViewCV", "User", new { area = "" }, new { @class = "navbar-brand" })
+                </li>
+                <li>
+                    @Html.ActionLink("Schedule", "Schedule", "User", new { area = "" }, new { @class = "navbar-brand" })
+                </li>
+                <li>
+                    @Html.ActionLink("Vacation Operations", "VacationDays", "User", new { area = "" }, new { @class = "navbar-brand" })
+                </li>
+                <li>
+                    @Html.ActionLink("Forums", "ListForums", "User", new { area = "" }, new { @class = "navbar-brand" })
+                </li>
+                <li>
+                    @Html.ActionLink("Inbox", "Inbox", "User", new { area = "" }, new { @class = "navbar-brand" })
+                </li>
+                <li>
+                    @Html.ActionLink("Other Users", "ListUsers", "User", new { area = "" }, new { @class = "navbar-brand" })
+                </li>
+                @if (ViewBag.User.StudentID != null) //Student
+                {
+                    <li>@Html.ActionLink("Transcript", "Transcript", "Student", new { area = "" }, new { @class = "navbar-brand" }) </li>
+                    <li>@Html.ActionLink("Student Certificate", "Certificate", "Student", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Grades&Attendance", "Grades", "Student", new { area = "" }, new { @class = "navbar-brand" })</li>
+                }
+                else if (ViewBag.User.TeacherId != null) //Teacher
+                {
+                    <li>@Html.ActionLink("Course List", "ListCourses", "Teacher", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Add Student", "RegisterStudent", "Teacher", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+                }
+                else if (ViewBag.User.EmployeeID != null) //Employee
+                {
+
+                    //<li>@Html.ActionLink("Employee Information Card", "GetEmployeeInformation", "Employee", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    // <li>@Html.ActionLink("Insurance Information", "GetEmployeeInsurance", "Employee", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    // <li>@Html.ActionLink("Previous Work Information", "GetEmployeeWork", "Employee", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    // <li>@Html.ActionLink("Schedule", "GetEmployeeSchedule", "Employee", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+                }
+                else if (ViewBag.User.ManagerId != null)//Manager
+                {
+                    <li>@Html.ActionLink("Add Employee", "RegisterEmployee", "Manager", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    // <li>@Html.ActionLink("Employee List", "ListAllEmployees", "Manager", new { area = "" }, new { @class = "navbar-brand" })</li>
+                }
+            </ul>
+
+        </div>
+    </nav>
+    <div class="container home-content">
+        @RenderBody()
+    </div>
+   
+</body>
+</html>

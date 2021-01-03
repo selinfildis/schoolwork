@@ -1,0 +1,19 @@
+Main(){
+
+    UndirGraph g2{
+
+Vertex twinTower;
+
+Vertex tacMahal;
+
+Edge wallStreet;
+
+Edge timesSquare;
+
+Connect (twinTower, tacMahal, wallStreet);
+
+timesSquare.IncludeProperty("Crowd Level", "High");
+
+}
+}
+

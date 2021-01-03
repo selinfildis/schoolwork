@@ -1,0 +1,38 @@
+﻿<div class="container">
+    <h2>Add Empl</h2>
+    <form id="student-form" action="/Manager/AddEmployee">
+        <div class="form-group">
+            <label for="name"> Full Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="EmployeeName">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="Mail">
+        </div>
+        <div class="form-group">
+            <label for="name">Phone Number</label>
+            <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="Phone">
+        </div>
+        <div class="form-group">
+            <label for="email">Username:</label>
+            <input type="text" class="form-control" id="uname" placeholder="Enter uname" name="Username">
+        </div>
+        <div class="form-group">
+            <label for="email">Password:</label>
+            <input type="text" class="form-control" id="pwd" placeholder="Enter uname" name="Password">
+        </div>
+        <div class="form-group">
+            <label for="email">Adress:</label>
+            <textarea class="form-control" rows="4" id="adress" placeholder="Enter adress" name="EmployeeAdress"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="email">Salary:</label>
+            <input type="number" class="form-control" id="salary" placeholder="Enter uname" name="Salary">
+        </div>
+        <div class="form-group">
+            <input type="hidden" class="form-control" id="company-id" value="@ViewBag.Company.Company.CompanyId" name="CompanyId">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+

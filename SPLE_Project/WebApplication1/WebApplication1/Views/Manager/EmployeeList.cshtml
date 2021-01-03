@@ -1,0 +1,27 @@
+﻿@model WebApplication1.Models.ManagerModel
+<body>
+    <div class="col-md-12 center">
+        <h2>List of Employees</h2>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <td>Employee Name</td>
+                    <td>Employee Salary</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var element in Model.emps)
+                {
+                    <tr>
+                        <td>@element.User.SingleOrDefault(x=> x.EmployeeID == element.EmployeeId).FullName</td>
+                        <td>@element.Salary</td>
+                        <td><button class="btn btn-success" name="schedule">Schedule</button></td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</body>
+
+

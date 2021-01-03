@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2015.2 (64-bit)
+# SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+# IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
+# Start of session at: Wed May 04 03:58:04 2016
+# Process ID: 11376
+# Log file: C:/Users/srhar/Desktop/Combined/VGAHero/VGAHero.runs/impl_1/FPGA_HERO.vdi
+# Journal file: C:/Users/srhar/Desktop/Combined/VGAHero/VGAHero.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source FPGA_HERO.tcl -notrace

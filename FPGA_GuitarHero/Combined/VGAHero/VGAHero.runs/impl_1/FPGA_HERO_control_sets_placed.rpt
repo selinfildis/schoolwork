@@ -1,0 +1,65 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.2 (win64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
+| Date         : Tue May 03 20:41:45 2016
+| Host         : EALAB01 running 64-bit Service Pack 1  (build 7601)
+| Command      : report_control_sets -verbose -file FPGA_HERO_control_sets_placed.rpt
+| Design       : FPGA_HERO
+| Device       : xc7a35t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++-------------------------------------------------------------------+-------+
+|                               Status                              | Count |
++-------------------------------------------------------------------+-------+
+| Number of unique control sets                                     |    12 |
+| Minimum Number of register sites lost to control set restrictions |    23 |
++-------------------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              33 |           17 |
+| No           | No                    | Yes                    |              62 |           24 |
+| No           | Yes                   | No                     |             107 |           30 |
+| Yes          | No                    | No                     |               5 |            3 |
+| Yes          | No                    | Yes                    |              10 |            3 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++--------------------+---------------+---------------------------+------------------+----------------+
+|    Clock Signal    | Enable Signal |      Set/Reset Signal     | Slice Load Count | Bel Load Count |
++--------------------+---------------+---------------------------+------------------+----------------+
+|  clk_IBUF_BUFG     | c/E[0]        |                           |                3 |              5 |
+|  sc/sig            |               | rst_IBUF                  |                4 |              7 |
+|  sd/button_eq_OBUF |               |                           |                4 |              8 |
+|  VGA/U1/CLK        |               | rst_IBUF                  |                4 |             10 |
+|  VGA/U1/CLK        | VGA/U3/sel    | rst_IBUF                  |                3 |             10 |
+|  clk_IBUF_BUFG     |               | deb5/PB_cnt[0]_i_1__3_n_0 |                4 |             16 |
+|  clk_IBUF_BUFG     |               | deb4/PB_cnt[0]_i_1_n_0    |                4 |             16 |
+|  clk_IBUF_BUFG     |               | deb3/PB_cnt[0]_i_1__2_n_0 |                4 |             16 |
+|  clk_IBUF_BUFG     |               | deb2/PB_cnt[0]_i_1__1_n_0 |                4 |             16 |
+|  clk_IBUF_BUFG     |               | deb1/PB_cnt[0]_i_1__0_n_0 |                4 |             16 |
+|  clk_IBUF_BUFG     |               |                           |               13 |             25 |
+|  clk_IBUF_BUFG     |               | rst_IBUF                  |               26 |             72 |
++--------------------+---------------+---------------------------+------------------+----------------+
+
+

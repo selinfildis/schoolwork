@@ -1,0 +1,20 @@
+Main(){
+
+    Predicate p1 = #Lessthan("ID", 214);
+
+    Predicate p2 = #Morethan("ID", 210);
+    
+    Predicate p3 = $Equals("ID", 211);
+
+    Predicate p4 = $Equals("ID", 212);
+
+    //Filter f1 = (p1|(p2&p4));
+
+    Filter f2 = p2 | p3;
+
+    Filter f3 = p1 & p4^;
+
+    Query q1 = f1&f2&f3;
+
+    Exec(myGraph,q1);
+}

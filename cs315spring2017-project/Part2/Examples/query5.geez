@@ -1,0 +1,17 @@
+Main(){
+
+	Predicate p1 = #Equals("Class Schedule","CS315");
+
+	Predicate p2 = $Equals("Class Schedule","CS319");
+
+	Predicate p3 = #Equals("Class Schedule","CS224");
+
+	Filter f1 = p1 & p2;
+
+	Filter f2 = p1 | p3;
+
+	Query q1 = (f1^| f2) & (#P);
+
+	Exec(myGraph, q1);
+}
+

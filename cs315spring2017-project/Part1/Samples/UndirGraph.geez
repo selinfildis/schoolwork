@@ -1,0 +1,38 @@
+
+//Undirected graph for colors is generated.
+UndirGraph color{
+Vertex red;			//Vertices are defined.
+Vertex green;
+Vertex blue;
+Edge yellow;			//Edges are defined.
+Edge purple;
+Edge cyan;
+
+//Each vertex and edge can have multiple properties which are 
+//composed of name, value pairs.
+blue.includeProperty("status", "my favoruite");
+blue.includeProperty("status", "What you're wearing right now!");
+
+//Collection types can be used and can be passed to properties as 
+//variables.
+red.includeProperty("lovers",3);
+x = [5,4,3,2,1];
+red.includeProperty("countdown",x);
+
+m = {"Sansa" : 1, Arya" : 2, "Bran"} 
+cyan.includeProperty("status", "don't know");
+cyan.includeProperty("Thrones",m);
+
+green.includeProperty("status", "spring");
+green.includeProperty("favourite","amazing eyes");
+
+//Graphs are connected with the connect keyword using the format 
+//connect(v1,v2,e1).
+//As this is an undirected graph edge direction isn't important. 
+//In other words, connect(v1,v2,e1) and connect(v2,v1,e1) are the 
+//same.
+connect(red,green,yellow);
+connect(green,blue,cyan);
+connect(blue,red,purple);
+}
+

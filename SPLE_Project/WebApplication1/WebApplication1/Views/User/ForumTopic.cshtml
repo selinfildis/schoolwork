@@ -1,0 +1,31 @@
+﻿
+<body>
+    <br />
+    <br />
+    <div class="container">
+        <h2>Forums</h2>
+        <p>Discuss and view topics</p>
+        <div class="col-md-3">
+            <button class="btn btn-success" name="add-forum-entry">Add Forum Entry</button>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Created Date</td>
+                    <td>Entry</td>
+                    <td>UserInfo</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var forumElement in ViewBag.ForumTopic)
+                {
+                    <tr>
+                        <td>@forumElement.CreateDate</td>
+                        <td>@forumElement.ForumName</td>
+                        <td>@forumElement.User.FullName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

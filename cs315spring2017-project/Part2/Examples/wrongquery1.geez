@@ -1,0 +1,17 @@
+Main(){
+
+//Incorrect definition of property.
+//Must be declared inside of undirGraph{} or dirGraph{}
+
+Property p1 = ("Status", "Unavailable");
+
+v1.IncludeProperty(p1);
+
+Predicate p1 = #Equals(p1);
+
+Predicate p2 = #Equals("Status", "Night mode on");
+
+Query q1 = p1 | p2;
+
+Exec(myGraph, q1);
+}

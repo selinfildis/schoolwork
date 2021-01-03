@@ -1,0 +1,33 @@
+﻿<div class="container">
+    <h2>Forums</h2>
+    <p>Discuss and view topics</p>
+    <div class="col-md-3">
+        <button class="btn btn-success" name="add-forum">Add Forum</button>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Created Date</td>
+                <td>Topic</td>
+
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if(ViewBag.Forums != null)
+            {                
+                foreach (var forumElement in ViewBag.Forums)
+                {
+                    if (forumElement != null)
+                    {
+                        <tr>
+                            <td>@forumElement.CreateDate</td>
+                            <td>@forumElement.ForumName</td>
+                            <td><button class="btn btn-success" name="forum" data-id="@forumElement.ForumId">Forum</button></td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>

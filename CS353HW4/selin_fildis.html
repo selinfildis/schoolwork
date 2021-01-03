@@ -1,0 +1,85 @@
+function connectToDB(){
+
+        $host = "dijkstra2.ug.bcc.bilkent.edu.tr";
+        $user = "selin.fildis";
+        $pass = "f1kjhn7y";
+        $db   = "selin_fildis";
+		$connection = @mysql_connect($host,$user,$pass) or die("No Connection");
+		$db= @mysql_select_db($db,$conn) or die("No DB");
+        return $conn;
+        return $db;
+}
+$conn = connectToDB();
+$sql ="SELECT Shows.pname, Host.name, Channel.cname FROM Shows,Channel, Host WHERE Show.cid = Channel.cid AND Show.hid = Host.hid ";
+$exec = mysql_query($sql);
+$i = 0 ; 
+ 
+
+
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+	border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
+</style>
+</head>
+<body>
+	<h1>Shows for the Week of 21/11/2016-27/11/2016</h1>
+	<table style="width:100%">
+				<tr>
+					<td>      </td>
+					<td>Monday</td>
+					<td>Tuesday</td>
+					<td>Wednesday </td>
+					<td>Thursday </td>
+					<td>Friday </td>
+					<td>Saturday </td>
+					<td>Sunday </td>
+				</tr>
+				<tr>
+					<td>20:00 - 21:00</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+				<tr>
+					<td>21:00 - 22:00</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+				<tr>
+					<td>22:00 - 23:00</td>
+					<td><a href=./show_info.php?showname=Startalk>Startalk</a><br>  Neil deGrasse Tyson <br> National Geographic </td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a href=./show_info.php?showname=5N1K>5N1K</a><br>  Cuneyt Ozdemir <br> CNN TURK </td>
+			</tr>
+				<tr>
+					<td>23:00 - 00:00</td>
+					<td></td>
+					<td><a href=./show_info.php?showname=Teke Tek>Teke Tek</a><br>  Fatih Altayli <br>Haberturk </td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tr>
+		
+	</table>
+</body>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e8b6baa670d740d2bcf8f9938a8dcf5d" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="VitaminModel.Company" Width="1.5" PointX="3" PointY="16.75" />
+        <EntityTypeShape EntityType="VitaminModel.Course" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="VitaminModel.Doctor" Width="1.5" PointX="3" PointY="21.375" />
+        <EntityTypeShape EntityType="VitaminModel.Employee" Width="1.5" PointX="5.25" PointY="9.75" />
+        <EntityTypeShape EntityType="VitaminModel.Forum" Width="1.5" PointX="5.25" PointY="13.625" />
+        <EntityTypeShape EntityType="VitaminModel.ForumEntries" Width="1.5" PointX="9.75" PointY="9.875" />
+        <EntityTypeShape EntityType="VitaminModel.GovernmentOfficial" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VitaminModel.Insurence" Width="1.5" PointX="7.5" PointY="12.875" />
+        <EntityTypeShape EntityType="VitaminModel.Manager" Width="1.5" PointX="5.25" PointY="6.625" />
+        <EntityTypeShape EntityType="VitaminModel.Message" Width="1.5" PointX="9.75" PointY="7" />
+        <EntityTypeShape EntityType="VitaminModel.Resource" Width="1.5" PointX="10.25" PointY="13.625" />
+        <EntityTypeShape EntityType="VitaminModel.Retiree" Width="1.5" PointX="5.25" PointY="21.125" />
+        <EntityTypeShape EntityType="VitaminModel.Schedule" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="VitaminModel.Student" Width="1.5" PointX="0.75" PointY="6.5" />
+        <EntityTypeShape EntityType="VitaminModel.Teacher" Width="1.5" PointX="1.5" PointY="13.625" />
+        <EntityTypeShape EntityType="VitaminModel.Transcript" Width="1.5" PointX="3" PointY="6" />
+        <EntityTypeShape EntityType="VitaminModel.User" Width="1.5" PointX="7.5" PointY="7.125" />
+        <EntityTypeShape EntityType="VitaminModel.Vacation" Width="1.5" PointX="2.75" PointY="2.75" />
+        <AssociationConnector Association="VitaminModel.FK_Company_Company" />
+        <AssociationConnector Association="VitaminModel.FK_Employee_Company" />
+        <AssociationConnector Association="VitaminModel.FK_Forum_Company" />
+        <AssociationConnector Association="VitaminModel.FK_Manager_Manager" />
+        <AssociationConnector Association="VitaminModel.FK_Resource_Company" />
+        <AssociationConnector Association="VitaminModel.FK_Course_Course" />
+        <AssociationConnector Association="VitaminModel.FK_Course_Teacher" />
+        <AssociationConnector Association="VitaminModel.FK_Forum_Course" />
+        <AssociationConnector Association="VitaminModel.FK_Resource_Course" />
+        <AssociationConnector Association="VitaminModel.FK_Transcript_Course" />
+        <AssociationConnector Association="VitaminModel.FK_Retiree_Doctor" />
+        <AssociationConnector Association="VitaminModel.FK_Employee_Schedule" />
+        <AssociationConnector Association="VitaminModel.FK_Insurence_Employee" />
+        <AssociationConnector Association="VitaminModel.FK_User_Employee" />
+        <AssociationConnector Association="VitaminModel.FK_ForumEntries_Forum" />
+        <AssociationConnector Association="VitaminModel.FK_Insurence_Retiree" />
+        <AssociationConnector Association="VitaminModel.FK_User_Manager" />
+        <AssociationConnector Association="VitaminModel.FK_Message_User" />
+        <AssociationConnector Association="VitaminModel.FK_Message_User1" />
+        <AssociationConnector Association="VitaminModel.FK_Schedule_Student" />
+        <AssociationConnector Association="VitaminModel.FK_Transcript_Student" />
+        <AssociationConnector Association="VitaminModel.FK_User_Student1" />
+        <AssociationConnector Association="VitaminModel.FK_User_Teacher" />
+        <AssociationConnector Association="VitaminModel.FK_Schedule_User" />
+        <AssociationConnector Association="VitaminModel.FK_Vacation_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

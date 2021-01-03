@@ -1,0 +1,41 @@
+﻿@model WebApplication1.Models.TeacherModel
+<div class="container">
+    <h2>Add Student</h2>
+    <form id="student-form" action="/Teacher/AddStudent">
+        <div class="form-group">
+            <label for="name">Student Full Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="StudentName">
+        </div>
+        <div class="form-group">
+            <label for="email">Student Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="StudentMail">
+        </div>
+        <div class="form-group">
+            <label for="name">Student Phone Number</label>
+            <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="StudentPhone">
+        </div>
+        <div class="form-group">
+            <label for="email">Student Username:</label>
+            <input type="text" class="form-control" id="uname" placeholder="Enter uname" name="StudentUsername">
+        </div>
+        <div class="form-group">
+            <label for="email">Student Password:</label>
+            <input type="text" class="form-control" id="pwd" placeholder="Enter uname" name="Password">
+        </div>
+        <div class="form-group">
+            <label for="email">Student Adress:</label>
+            <textarea class="form-control" rows="4" id="adress" placeholder="Enter adress" name="StudentAdress"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="course">Student Course:</label>
+            <select name="CourseId">
+                @foreach (var course in ViewBag.Teacher.Course)
+                {
+                    <option value="@course.cid">@course.CourseName</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+

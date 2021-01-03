@@ -1,0 +1,10 @@
+Main(){
+DirGraph {
+Vertex istanbul;
+Vertex ankara;
+Vertex izmir;
+izmir.IncludeProperty("Population", 2.300);
+istanbul.IncludeProperty("KISMET KANKA YA", {"China", "North Korea","South Korea", "Japan"});
+
+}
+}

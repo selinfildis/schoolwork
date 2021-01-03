@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/custom.css")
+</head>
+<body style="background-image: url('https://m.guardtime.com/photos/tech_image.jpg');">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container"  >
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="background-color: rgba(256,256,256,0.7);">
+            <h1> Welcome to Vitamin Management Systems.</h1>
+            <p> If you do not have an username or a password, or forgotten them please contact your System Administrator.</p>
+            <div class="container">
+                <form class="form">
+                    <div class="col-md-9 col-md-offset-1 form-group">
+                        <label class="col-md-3 control-label" for="username">Username</label>
+                        <input class="col-md-6 form-control" type="text" placeholder="Username" name="username" />
+                    </div>
+                    <div class="col-md-9 col-md-offset-1 form-group">
+                        <label class="col-md-3 control-label" for="password">Password</label>
+                        <input class="col-md-6 form-control" type="password" placeholder="Password" name="password" />
+                    </div>
+                    <div class="col-md-9 col-md-offset-1 form-group">
+                        <button class="btn btn-default form-control col-md-3" id="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+        
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $("#submit").on('click', function () {
+            $.ajax({
+                url: '/Home/Login',
+                type: 'post',
+                dataType: 'json',
+                data: $('form').serialize(),
+                success: function (data) {
+                    if (data)
+                    {
+                        window.location.href = window.location.origin + "/User/MainPage";
+                    }
+                    else 
+                        alert("Could not login, please check your password");
+
+                },
+                error: function (data) {
+                    alert("Could not login, server fault, please try again later");
+                }
+            });
+            return false;
+        });
+    </script>
+</body>
+</html>

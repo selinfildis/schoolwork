@@ -1,0 +1,7 @@
+Predicate p1 = #equals("id",21400794);
+Predicate p2 = $equals("name", "Duha");
+Predicate p3 = $equals("birth", 31.01);
+Predicate p4 = #equals("department", "CS");
+Filter f1 = p3 & p4;
+Filter f2 = p1 | p2;
+Query q1 = (f1^ | f2)^;

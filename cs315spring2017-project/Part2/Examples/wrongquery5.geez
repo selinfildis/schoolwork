@@ -1,0 +1,26 @@
+Main(){
+
+	y = 85;
+	
+	If(y = 85)
+	{
+		y = 65;
+	}
+
+	Predicate p1 = #Morethan("Grade", y);
+
+	
+	Filter f2 = p1;
+	
+	Filter f3 = p2;
+
+
+	Query q1 = (f1|(f2&f3))^;
+
+	Query q2 = f4&f3^;
+
+	Exec(myGraph,q1);
+
+	Exec(myGraph,q2);
+
+}

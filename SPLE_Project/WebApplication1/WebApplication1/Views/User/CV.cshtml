@@ -1,0 +1,54 @@
+﻿<div class="container">
+    <div class="col-md-12 ">
+        <h1>  Curiculum Vitae for @(ViewBag.User.FullName) </h1>
+        <p>
+            @if (ViewBag.User.CV != null)
+            {
+
+                @ViewBag.User.CV
+            }
+            else {
+
+                <text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed quam massa, tincidunt sit amet aliquet vitae, pharetra nec quam.
+                    Proin laoreet massa nisl, eu gravida ligula sodales id.
+                    Phasellus at libero ac nisi lobortis lobortis sit amet ac elit.
+                    Suspendisse sed ligula scelerisque, hendrerit sapien sed, blandit mi.
+                    Nunc tincidunt sit amet elit ut hendrerit.
+                    Aenean gravida metus ex, vel dictum erat posuere vitae.
+                    Phasellus porttitor finibus purus, id faucibus nibh iaculis id.
+                </text>
+            }
+        </p>
+        <button class="btn btn-success cv">Change CV</button>
+    </div>
+</div>
+<div id="cv2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form">
+                    <textarea class="col-md-12" placeholder="Enter content here" rows="6" name="message"></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success submitbtn">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $('.cv').on('click', function () {
+        $("#cv2").modal("show");
+    });
+</script>

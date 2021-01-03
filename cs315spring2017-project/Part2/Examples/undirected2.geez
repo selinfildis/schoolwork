@@ -1,0 +1,19 @@
+Main(){
+    UndirGraph g3{
+Vertex captainAmerica;
+Vertex hULK;
+Vertex batman;
+Vertex aquaman;
+Vertex harleyQuinn;
+Vertex elDiablo;
+Edge suicideSquad;
+Edge avengers;
+Edge justiceLeague;
+Connect(captainAmerica, hULK, avengers);
+Connect(batman, aquaman, justiceLeague);
+Connect(harleyQuinn, elDiablo, suicideSquad);
+hULK.IncludeProperty("Size", "ENORMOUS!");
+avengers.IncludeProperty("Number of Members", 5);
+               }
+}
+

@@ -1,0 +1,22 @@
+Main(){
+
+Predicate p1 = #Equals("Suit", "Spade");
+
+Predicate p2 = #Equals("Suit", "Heart");
+
+Predicate p3 = #Equals("Suit", "Diamond");
+
+//Incorrect predicate definition, missing # or $.
+Predicate p4 = Equals("Suit", "Club");
+
+Filter f1 = p1|p2;
+
+Filter f2 = p3|p4;
+
+Filter f3 = (f1&f2)^;
+
+Query q1 = f3;
+
+Exec(myGraph, q1);
+
+}

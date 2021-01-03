@@ -1,0 +1,78 @@
+﻿
+<body>
+    <br />
+    <br />
+    <div class="container">
+        <h2>Personal Information Card</h2>
+        <p>Displays the personal information about users</p> 
+        <table class="table table-bordered table-striped">
+           <tbody>
+               <tr>
+                   <td>Name</td>
+                   <td>@ViewBag.User.FullName</td>
+               </tr>
+               <tr>
+                   <td>Contact Information</td>
+                   <td>
+                       <table>
+                           <tbody>
+                               <tr>
+                                   <td>
+                                       Email
+                                   </td>
+                                   <td>
+                                       @ViewBag.User.Mail
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td>
+                                       Adress
+                                   </td>
+                                   <td>
+                                       @ViewBag.User.Adress
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td>
+                                       Phone
+                                   </td>
+                                   <td>
+                                       @ViewBag.User.PhoneNumber
+                                   </td>
+                               </tr>
+                               @if (ViewBag.User.EmployeeID != null)
+                               {
+                                <tr>
+                                    <td>
+                                        Salary
+                                    </td>
+                                    <td>
+                                        5500
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Company
+                                    </td>
+                                    <td>
+                                        Vitamin Corp
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Work HRS
+                                    </td>
+                                    <td>
+                                        Mon-Fri 8-5, Sat 9-12
+                                    </td>
+                                </tr>
+                               }
+                               
+                           </tbody>
+                       </table>
+                   </td>
+               </tr>
+           </tbody>
+        </table>
+    </div>
+</body>

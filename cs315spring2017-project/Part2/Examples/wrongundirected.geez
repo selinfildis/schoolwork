@@ -1,0 +1,20 @@
+Main(){
+
+UndirGraph fastfood{
+
+Vertex hamburger;
+
+Vertex hotdog;
+
+Edge frenchFries;
+
+//Syntax error, semicolon missing.
+hamburger.IncludeProperty("Taste", "amazing")
+
+//Syntax error, semicolon missing.
+hotdog.IncludeProperty("Taste", "second choice")
+
+Connect(hamburger, hotdog, frenchFries);
+
+}
+}
